@@ -74,6 +74,11 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
+    - name: Kill ADB Server
+      run: |
+        adb kill-server
+        adb start-server
+
     - name: Run Espresso Tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
