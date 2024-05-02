@@ -61,18 +61,18 @@ jobs:
   instrumentation_test:
     name: Instrumentation Tests
     needs: [unit-test]
-    runs-on: macos-latest
+    runs-on: macos-12
 
     steps:
     - name: Checkout the Code
       uses: actions/checkout@v4
 
-    # - name: set up JDK 11
-    #   uses: actions/setup-java@v3
-    #   with:
-    #     java-version: '11'
-    #     distribution: 'temurin'
-    #     cache: gradle
+    - name: set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: gradle
 
     - name: Run Espresso Tests
       uses: reactivecircus/android-emulator-runner@v2
